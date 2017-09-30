@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from .models import User
 
 def index(request):
-    request.session.clear()
+    
     return render(request, 'logreg/index.html')
 
 def create(request):
@@ -26,3 +26,7 @@ def login(request):
     else:
         messages.warning(request, loginstatus[1])
         return redirect(reverse('logreg:index'))
+
+    def logout(request):
+        request.session.clear()
+        render(request, 'logreg/index.html')
