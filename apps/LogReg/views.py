@@ -27,6 +27,6 @@ def login(request):
         messages.warning(request, loginstatus[1])
         return redirect(reverse('logreg:index'))
 
-    def logout(request):
-        request.session.clear()
-        redirect(reverse('logreg:index'))
+def logout(request):
+    request.session.clear()
+    redirect(reverse('logreg:index'))
