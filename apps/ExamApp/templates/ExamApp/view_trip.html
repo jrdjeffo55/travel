@@ -1,0 +1,21 @@
+{% extends "LogReg/base.html" %}
+
+{% block content %}
+<header>
+<p><a href="{% url 'logreg:index' %}">Logout</a></p>    
+<p><a href="{% url 'examapp:index' %}">Home</a></p>
+</header>
+<h2>{{ trip.destination }}</h2>
+<p>Planned By:  {{ trip.user.username }}</p>
+<p>Description:  {{ trip.description }}</p>
+<p>Travel Date From:  {{ trip.date_start }}</p>
+<p>Travel Date To:  {{ trip.date_end }}</p>
+{% if guests %}
+<h3>Other users joining the trip:</h3>
+    {% for guest in guests %}
+        <p>{{ guest.user.username }}</p>
+    {% endfor %}
+{% endif %}
+
+
+{% endblock %}

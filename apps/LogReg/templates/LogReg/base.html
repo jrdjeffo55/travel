@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title></title>
+        <description></description>
+        <meta charset='utf-8'>
+        {% load staticfiles %}
+        <link rel = 'stylesheet' href="{% static 'css/bootstrap.min.css' %}" type='text/css'/>
+        <style type="text/css">
+            html,
+            body {
+              height:100%
+            }
+            *{
+                margin-left: 10px;
+                margin-right: 10px
+            }
+            header{
+                display: inline-block;
+                float: right;
+            }
+           
+        </style>
+    </head>
+    <body class="body" style="background-color:#f6f6f6">
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

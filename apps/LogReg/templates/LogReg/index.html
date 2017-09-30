@@ -1,0 +1,37 @@
+{% extends "LogReg/base.html" %}
+
+{% block content %}
+
+<h2>Welcome to TravelBuddy!</h2>
+{% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+<h4>Existing User?  Log In Here:</h4>
+<form action="{% url 'logreg:login' %}" method="post">
+    {% csrf_token %}
+    <p><label for="login-username">Username: </label>
+    <input id="login-username" type="text" name="username" /></p>
+    <p><label for="login-pw">Password: </label>
+    <input id="login-pw" type="password" name="password" /></p>
+    <input type="submit" value="Log In" />
+</form>
+<h4>New User?  Register Here:</h4>
+<form action="{% url 'logreg:create-user' %}" method="post">
+    {% csrf_token %}
+    <p><label for="reg-name">Name: </label>
+    <input id="reg-name" type="text" name="name" /></p>
+    <p>*Username must contain letters and numbers only*</p>
+    <p><label for="reg-username">Username: </label>
+    <input id="reg-username" type="text" name="username" /></p>
+    <p><label for="reg-pw">Password: </label>
+    <input id="reg-pw" type="password" name="password" /></p>
+    <p><label for="reg-cpw">Confirm Password: </label>
+    <input id="reg-cpw" type="password" name="conf_password" /></p>
+    <input type="submit" value="Register" />
+</form>
+
+{% endblock %}

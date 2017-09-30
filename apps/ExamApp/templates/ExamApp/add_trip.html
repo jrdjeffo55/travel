@@ -1,0 +1,28 @@
+{% extends "LogReg/base.html" %}
+
+{% block content %}
+<header>
+    <p><a href="{% url 'logreg:index' %}">Logout</a></p>    
+    <p><a href="{% url 'examapp:index' %}">Home</a></p>
+</header>
+<h2>Add New Trip</h2>
+{% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+<form action="{% url 'examapp:create_trip' %}" method="post">
+    {% csrf_token %}
+    <p><label for="destination">Destination: </label>
+    <input id="destination" type="text" name="destination" /></p>
+    <p><label for="description">Description: </label>
+    <input id="description" type="text" name="description" /></p>
+    <p><label for="date_start">Travel Date From (yyyy-mm-dd): </label>
+    <input id="date_start" type="date" name="date_start" /></p>
+    <p><label for="date_end">Travel Date To (yyyy-mm-dd): </label>
+    <input id="date_end" type="date" name="date_end" /></p>
+    <input type="submit" value="Add Trip" />
+</form>
+{% endblock %}
