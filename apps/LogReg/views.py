@@ -29,4 +29,4 @@ def login(request):
 
     def logout(request):
         request.session.clear()
-        render(request, 'logreg/index.html')
+        redirect(reverse('logreg:index'))
