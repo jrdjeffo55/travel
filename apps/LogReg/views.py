@@ -5,7 +5,7 @@ from .models import User
 
 def index(request):
     
-    return render(request, 'logreg/index.html')
+    return render(request, 'LogReg/index.html')
 
 def create(request):
     regstatus = User.userManager.register(**request.POST)
