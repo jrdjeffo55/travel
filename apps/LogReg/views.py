@@ -28,4 +28,4 @@ def login(request):
 
 def logout(request):
     request.session.clear()
-    redirect(reverse('logreg:index'))
+    return redirect(reverse('logreg:index'))
