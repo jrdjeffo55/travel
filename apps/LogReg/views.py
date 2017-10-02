@@ -3,8 +3,7 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from .models import User
 
-def index(request):
-    
+def index(request):   
     return render(request, 'LogReg/index.html')
 
 def create(request):
